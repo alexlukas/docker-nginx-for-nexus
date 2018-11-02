@@ -3,7 +3,7 @@ FROM nginx:stable-alpine
 LABEL maintainer="Alexander Lukas <mail@alex-lukas.de>"
 
 COPY ./conf/nginx/nginx.conf /etc/nginx/nginx.conf
-RUN mkdir -p /etc/nginx/conf.d
+RUN rm /etc/nginx/conf.d/default.conf
 COPY ./conf/nginx/conf.d/nexus-backend.conf /etc/nginx/conf.d/nexus-backend.conf
 
 # forward request and error logs to docker log collector
